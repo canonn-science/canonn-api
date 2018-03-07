@@ -70,7 +70,9 @@ namespace EddnEventBridgeSample
 		{
 			var services = new ServiceCollection()
 				.AddLogging(lb => lb.AddSerilog())
-				.AddTransient<Application>();
+				.AddTransient<Application>()
+				.AddTransient<EddnEventStreamReader>()
+				.AddTransient<EventStoreConnector>();
 
 			return services.BuildServiceProvider();
 		}
