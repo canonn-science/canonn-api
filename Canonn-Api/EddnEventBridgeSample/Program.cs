@@ -19,8 +19,10 @@ namespace EddnEventBridgeSample
 
 				using (var cts = new CancellationTokenSource())
 				{
+					AppDomain.CurrentDomain.ProcessExit += (s, e) => { cts.Cancel(false); };
 					Console.CancelKeyPress += (s, e) =>
 					{
+						e.Cancel = true; // Do not terminate asap
 						Log.Logger.Information("Ctrl-C received. Trying to shutdown gracefully.");
 						cts.Cancel(false);
 					};

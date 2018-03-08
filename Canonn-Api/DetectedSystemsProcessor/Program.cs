@@ -13,8 +13,10 @@ namespace DetectedSystemsProcessor
 		{
 			bool aborting = false;
 
+			AppDomain.CurrentDomain.ProcessExit += (s, e) => { aborting = true; };
 			Console.CancelKeyPress += (s, e) =>
 			{
+				e.Cancel = true;
 				Console.WriteLine("Aborting...");
 				aborting = true;
 			};
