@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Collector.Serilog.Enrichers.Assembly" Version="1.0.1" />
-    <PackageReference Include="EventStore.Client" Version="4.1.0" />
+    <PackageReference Include="EventStore.ClientAPI.NetCore" Version="4.1.0.23" />
     <PackageReference Include="Iconic.Zlib.Netstandard" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.0" />
