@@ -1,7 +1,41 @@
-// Your variable overrides
+@import "fonts";
+@import "variables";
 
-$body-bg: #000;
-$body-color: #111;
+$primary: $ed-orange;
+$body-bg: black;
+$body-color: white;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-monospace: 'Fira Sans', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$navbar-dark-active-color: $ed-orange;
+$dropdown-divider-bg: $ed-orange;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
+h2 {
+    color: $ed-orange;
+}
+
+.navbar-dark {
+    .navbar-brand {
+        color: $white;
+
+        @include hover-focus {
+            color: $white;
+        }
+    }
+
+    .dropdown-item {
+        color: $navbar-dark-color;
+
+        @include hover-focus {
+            color: $navbar-dark-hover-color;
+            background-color: $dark;
+        }
+
+        &.disabled {
+            color: $navbar-dark-disabled-color;
+        }
+    }
+}

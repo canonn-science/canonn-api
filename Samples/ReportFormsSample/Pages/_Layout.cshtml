@@ -1,71 +1,80 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
-    <title>@ViewData["Title"] - ReportFormsSample</title>
+	<title>@ViewData["Title"] - ReportFormsSample</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/bootstrap-theme.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/bootstrap-theme.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+	<environment include="Development">
+		<link rel="stylesheet" href="~/css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="~/css/site.css" />
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="~/css/bootstrap-theme.min.css" asp-append-version="true" />
+		<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+	</environment>
+	<link href="https://fonts.googleapis.com/css?family=Michroma|Fira+Sans" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-page="/Index" class="navbar-brand">ReportFormsSample</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - ReportFormsSample</p>
-        </footer>
-    </div>
+	<header>
+		<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+			<a asp-page="/Index" class="navbar-brand">Canonn Reporting Hub</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item" is-active-route asp-page="/Index"><a class="nav-link" asp-page="/Index">Home</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Reports
+							</a>
+							<div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" asp-page="/BarkMound">Bark Mound</a>
+								<a class="dropdown-item" asp-page="/BrainTress">Brain Trees</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</li>
+						<li class="nav-item" is-active-route asp-page="/About"><a class="nav-link" asp-page="/About">About</a></li>
+						<li class="nav-item" is-active-route asp-page="/Contact"><a class="nav-link" asp-page="/Contact">Contact</a></li>
+					</ul>
+				</div>
+		</nav>
+	</header>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery-3.3.1.slim.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery-3.3.1.slim.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=">
-        </script>
+	<main class="container" role="main">
+		@RenderBody()
+	</main>
 
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+<footer class="footer bg-dark text-light">
+	<div class="container">
+		<span >&copy; @DateTime.UtcNow.Year - Canonn R&amp;D</span>
+	</div>
+</footer>
 
-    @RenderSection("Scripts", required: false)
+<environment include="Development">
+		<script src="~/lib/js/jquery.slim.js"></script>
+		<script src="~/lib/js/bootstrap.js"></script>
+		<script src="~/js/site.js" asp-append-version="true"></script>
+	</environment>
+	<environment exclude="Development">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"
+				  asp-fallback-src="~/lib/jquery/dist/jquery-3.3.1.slim.min.js"
+				  asp-fallback-test="window.jQuery"
+				  crossorigin="anonymous"
+				  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=">
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+				  asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+				  asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+				  crossorigin="anonymous"
+				  integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=">
+		</script>
+		<script src="~/js/site.min.js" asp-append-version="true"></script>
+	</environment>
+
+	@RenderSection("Scripts", required: false)
 </body>
 </html>
