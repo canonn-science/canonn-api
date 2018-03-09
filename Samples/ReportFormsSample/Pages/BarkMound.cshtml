@@ -1,0 +1,35 @@
+﻿@page
+@model BarkMoundsModel
+@{
+	ViewData["Title"] = "Report Bark Mounds";
+}
+
+<div class="row justify-content-md-center">
+	<div class="col-md-auto">
+
+		<h2>@ViewData["Title"]</h2>
+		<h3>DEBUG: @Model.Message</h3>
+
+		<p>Use this area to provide additional information.</p>
+
+		<form method="post">
+
+			<div class="form-group">
+				<label asp-for="FormData.CommanderName"></label>
+				<input asp-for="FormData.CommanderName" class="form-control" />
+				<span asp-validation-for="FormData.CommanderName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="FormData.System"></label>
+				<input asp-for="FormData.System" class="form-control" />
+				<span asp-validation-for="FormData.System" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Report Brain Trees</button>
+			</div>
+
+		</form>
+	</div>
+</div>
