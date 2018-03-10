@@ -2,11 +2,14 @@
 @import "variables";
 
 $primary: $ed-orange;
-$body-bg: black;
-$body-color: white;
+$body-bg:  #38474f;
+$body-color: #cfd8dc;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-monospace: 'Fira Sans', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// $navbar-dark-color: #283238;
+$header-fg: white;
 
 $navbar-dark-active-color: $ed-orange;
 $dropdown-divider-bg: $ed-orange;
@@ -19,10 +22,10 @@ h2 {
 
 .navbar-dark {
     .navbar-brand {
-        color: $white;
+        color: $ed-orange;
 
         @include hover-focus {
-            color: $white;
+            color: $ed-orange;
         }
     }
 

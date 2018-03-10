@@ -4,7 +4,7 @@ using DataType = System.ComponentModel.DataAnnotations.DataType;
 
 namespace ReportFormsSample.Models
 {
-	public class BrainTreesFormModel
+	public class FungalGourdsFormModel
 	{
 		[Required()]
 		[Display(Name="Commander Name", Prompt="Your Commander name")]
@@ -41,7 +41,7 @@ namespace ReportFormsSample.Models
 		[Description("It is required that you include a screenshot to allow for validation.")]
 		public string ScreenshotUrl { get; set; }
 
-		[Description("You can include the count of brain trees if you whish.")]
+		[Description("You can include the count of fungal gourds if you whish.")]
 		public int AmountOfBrainTrees { get; set; }
 
 		[Display(Name = "Link to forum post", Prompt = "https://forums.frontier.co.uk/forum.php")]

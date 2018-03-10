@@ -14,44 +14,22 @@
 		<link rel="stylesheet" href="~/css/bootstrap-theme.min.css" asp-append-version="true" />
 		<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
 	</environment>
-	<link href="~/Content/FormFactory/FormFactory.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 	<link href="https://fonts.googleapis.com/css?family=Michroma|Fira+Sans" rel="stylesheet">
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-			<a asp-page="/Index" class="navbar-brand">Canonn Reporting Hub</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-				<div class="collapse navbar-collapse" id="mainNavbar">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item" is-active-route asp-page="/Index"><a class="nav-link" asp-page="/Index">Home</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Reports
-							</a>
-							<div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" asp-page="/BarkMound">Bark Mound</a>
-								<a class="dropdown-item" asp-page="/BrainTrees">Brain Trees</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</li>
-						<li class="nav-item" is-active-route asp-page="/About"><a class="nav-link" asp-page="/About">About</a></li>
-						<li class="nav-item" is-active-route asp-page="/Contact"><a class="nav-link" asp-page="/Contact">Contact</a></li>
-					</ul>
-				</div>
-		</nav>
-	</header>
+<header>
+	<vc:main-menu></vc:main-menu>
+</header>
 
 	<main class="container" role="main">
 		@RenderBody()
 	</main>
 
 <footer class="footer bg-dark text-light">
-	<div class="container">
-		<span >&copy; @DateTime.UtcNow.Year - Canonn R&amp;D</span>
+	<div class="container d-flex justify-content-between">
+		<span>&copy; @DateTime.UtcNow.Year - Canonn R&amp;D | <a href="https://canonn.science">https://canonn.sciene</a></span>
+		<span>This project is on <a href="https://github.com/canonn-science/canonn-api"><i class="fa fa-lg fa-github"></i> GitHub</a></span>
 	</div>
 </footer>
 

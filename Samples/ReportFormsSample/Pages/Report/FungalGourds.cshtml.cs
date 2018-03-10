@@ -2,19 +2,20 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ReportFormsSample.Models;
 
-namespace ReportFormsSample.Pages
+namespace ReportFormsSample.Pages.Report
 {
-	public class BrainTreesModel : PageModel
+	public class FungalGourdsModel : PageModel
 	{
 		public string Message { get; set; }
 
 		[BindProperty]
-		public BrainTreesFormModel FormModel { get; set; }
+		public FungalGourdsFormModel FormData { get; set; }
+		
 
 		public void OnGet()
 		{
-			Message = "Please report your brain trees.";
-			FormModel = new BrainTreesFormModel();
+			Message = "Fungal Gourds Report - Site Code: FG";
+			FormData = new FungalGourdsFormModel();
 		}
 
 		public void OnPost()
@@ -25,9 +26,8 @@ namespace ReportFormsSample.Pages
 				return;
 			}
 
-			Message = "Thank you for reporting the brain trees.";
-			FormModel = new BrainTreesFormModel();
+			Message = "Thank you for reporting the Fungal Gourds";
+			FormData = new FungalGourdsFormModel();
 		}
 	}
 }
-
