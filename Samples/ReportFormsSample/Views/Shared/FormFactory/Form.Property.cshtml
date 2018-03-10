@@ -18,9 +18,9 @@
 				var required = propertyVm.NotOptional ?? (propertyVm.Readonly
 																		|| propertyVm.IsRequired()
 																		|| propertyVm.Choices != null);
-				var optionalText = required ? " <span style='color: red'>*</span> <span class='is-optional-hint'>(required)</span>" : "<span class='is-optional-hint'> (optional)</span>";
-
-				<label class="col-form-label" for="@propertyVm.Id">@propertyVm.DisplayName()@Html.Raw(optionalText)</label>
+				var optionalText = required ? "<span style='color: red'>*</span> <span class='is-optional-hint'>(required)</span>" : "<span class='is-optional-hint'> (optional)</span>";
+				
+				<label class="col-form-label" for="@propertyVm.Id">@propertyVm.DisplayName() @Html.Raw(optionalText)</label>
 			}
 
 			@Html.BestProperty(propertyVm)

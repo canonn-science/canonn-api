@@ -3,10 +3,10 @@ using ReportFormsSample.RazorPages;
 
 namespace ReportFormsSample.Pages.Report
 {
-	public class BarkMoundsModel : BaseFormModel<BarkMoundFormModel>
+	public class FungalGourdModel : BaseFormModel<FungalGourdFormModel>
 	{
-		public BarkMoundsModel()
-			: base("Bark Mound", "BM")
+		public FungalGourdModel()
+			: base("Fungal Gourd", "FG")
 		{
 		}
 	}

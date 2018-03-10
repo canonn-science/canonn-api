@@ -3,11 +3,12 @@ using ReportFormsSample.RazorPages;
 
 namespace ReportFormsSample.Pages.Report
 {
-	public class BarkMoundsModel : BaseFormModel<BarkMoundFormModel>
+	public class BrainTreeModel : BaseFormModel<BrainTreeFormModel>
 	{
-		public BarkMoundsModel()
-			: base("Bark Mound", "BM")
+		public BrainTreeModel()
+			: base("Brain Tree", "BT")
 		{
 		}
 	}
 }
+
