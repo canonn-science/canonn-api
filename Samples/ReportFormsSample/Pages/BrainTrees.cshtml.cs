@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
 using ReportFormsSample.Models;
 
 namespace ReportFormsSample.Pages
@@ -9,7 +7,6 @@ namespace ReportFormsSample.Pages
 	public class BrainTreesModel : PageModel
 	{
 		public string Message { get; set; }
-		public string Debug { get; set; }
 
 		[BindProperty]
 		public BrainTreesFormModel FormModel { get; set; }
@@ -17,21 +14,19 @@ namespace ReportFormsSample.Pages
 		public void OnGet()
 		{
 			Message = "Please report your brain trees.";
-			Debug = String.Empty;
 			FormModel = new BrainTreesFormModel();
 		}
 
-		public IActionResult OnPost()
+		public void OnPost()
 		{
 			if (!ModelState.IsValid)
-				return Page();
+			{
+				Message = "Please correct your input and try again.";
+				return;
+			}
 
 			Message = "Thank you for reporting the brain trees.";
-			Debug = JsonConvert.SerializeObject(FormModel, Formatting.Indented);
-
 			FormModel = new BrainTreesFormModel();
-
-			return Page();
 		}
 	}
 }
