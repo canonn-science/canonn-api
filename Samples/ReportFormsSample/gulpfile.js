@@ -3,11 +3,12 @@ const gulp = require('gulp');
 const del = require('del');
 const copy = require('gulp-copy');
 const sass = require('gulp-sass');
+const cleanCss = require('gulp-clean-css');
 const rename = require('gulp-rename');
 
 config = {
 	dest: 'wwwroot/',
-	targetFolders : [
+	targetFolders: [
 		'lib',
 		'css',
 	],
@@ -48,9 +49,19 @@ gulp.task('copy', ['clean'], () => {
 });
 
 gulp.task('sass', () => {
-	return gulp.src('wwwrootSrc/styles/*.scss')
-		.pipe(sass())
-		.pipe(gulp.dest(config.dest + 'css'));
+	let src = 'wwwrootSrc/styles/*.scss';
+	let dest = config.dest + 'css';
+
+	return [
+		gulp.src(src)
+			.pipe(sass())
+			.pipe(gulp.dest(dest)),
+		gulp.src(src)
+			.pipe(sass())
+			.pipe(cleanCss())
+			.pipe(rename({ suffix: '.min' }))
+			.pipe(gulp.dest(dest)),
+	];
 });
 
 gulp.task('build', ['copy', 'sass']);
