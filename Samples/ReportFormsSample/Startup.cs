@@ -1,7 +1,9 @@
 using System;
+using System.Globalization;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +23,14 @@ namespace ReportFormsSample
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.Configure<RequestLocalizationOptions>(options =>
+			{
+				var en = new CultureInfo("en-US");
+				options.DefaultRequestCulture = new RequestCulture(en, en);
+				options.SupportedCultures = new[] { en };
+				options.SupportedUICultures = new[] { en };
+			});
+
 			services.AddMvc();
 
 			// Add FormFactory
@@ -45,14 +55,15 @@ namespace ReportFormsSample
 				app.UseExceptionHandler("/Error");
 			}
 
-			app.UseStaticFiles(); // first with default options
-			app.UseStaticFiles(new StaticFileOptions() // and now for FormBuilder
-			{
-				RequestPath = String.Empty,
-				FileProvider = new EmbeddedFileProvider(typeof(FormFactory.FF).GetTypeInfo().Assembly, nameof(FormFactory)),
-			});
-
-			app.UseMvc();
+			app
+				.UseStaticFiles() // first with default options
+				.UseStaticFiles(new StaticFileOptions() // and now for FormBuilder
+				{
+					RequestPath = String.Empty,
+					FileProvider = new EmbeddedFileProvider(typeof(FormFactory.FF).GetTypeInfo().Assembly, nameof(FormFactory)),
+				})
+				.UseRequestLocalization()
+				.UseMvc();
 		}
 	}
 }

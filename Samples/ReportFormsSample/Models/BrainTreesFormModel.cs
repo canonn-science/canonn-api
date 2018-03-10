@@ -21,13 +21,15 @@ namespace ReportFormsSample.Models
 		[Required()]
 		[Description("4 decimal points, NOT rounded, value between -90 and +90 (Please use periods).")]
 		[Range(-90, 90)]
-		// [RegularExpression(@"\d+(\.\d{1,4})?")]
+		[DefaultValue(0.0000d)]
+		[RegularExpression(@"\d+(\.\d{4})", ErrorMessage = "4 decimal points are required.")]
 		public decimal Latitude { get; set; }
 
 		[Required()]
 		[Description("4 decimal points, NOT rounded, value between -180 and +180 (Please use periods).")]
 		[Range(-180, 180)]
-		// [RegularExpression(@"\d+(\.\d{1,4})?")]
+		[DefaultValue(0.0000d)]
+		[RegularExpression(@"\d+(\.\d{4})", ErrorMessage = "4 decimal points are required.")]
 		public decimal Longitude { get; set; }
 
 		[Required()]
