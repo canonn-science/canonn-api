@@ -2,7 +2,7 @@
 
 ECHO.
 ECHO Stopping Event Store
-docker stop cont-canonnapi-eventstore
+docker stop --time 2 cont-canonnapi-eventstore
 
 ECHO.
 ECHO Stopping Redis
