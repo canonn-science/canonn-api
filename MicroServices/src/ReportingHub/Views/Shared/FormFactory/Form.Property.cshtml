@@ -1,0 +1,41 @@
+﻿@using FormFactory.Attributes
+@using FormFactory
+@model PropertyVm
+@{
+	var propertyVm = Model;
+	if (propertyVm.IsHidden)
+	{
+		<div style="display: none">@Html.BestProperty(propertyVm)</div>
+	}
+	else
+	{
+		var hasError = Html.HasErrors(propertyVm.Name);
+		var validClass = hasError ? "error" : "valid";
+		var groupState = hasError ? "is-valid" : "is-invalid";
+		<div class="form-group has-@validClass @groupState">
+			@if (!propertyVm.HasAttribute<NoLabelAttribute>() && !propertyVm.HasAttribute<LabelOnRightAttribute>())
+			{
+				var required = propertyVm.NotOptional ?? (propertyVm.Readonly
+																		|| propertyVm.IsRequired()
+																		|| propertyVm.Choices != null);
+				var optionalText = required ? "<span style='color: red'>*</span> <span class='is-optional-hint'>(required)</span>" : "<span class='is-optional-hint'> (optional)</span>";
+				
+				<label class="col-form-label" for="@propertyVm.Id">@propertyVm.DisplayName() @Html.Raw(optionalText)</label>
+			}
+
+			@Html.BestProperty(propertyVm)
+
+			@{
+				var description = propertyVm.GetDescription();
+				if (!String.IsNullOrEmpty(description))
+				{
+					<small class="form-text text-muted">@description</small>
+				}
+			}
+
+			<span class="field-validation-@validClass" data-valmsg-for="@propertyVm.Name" data-valmsg-replace="true">
+				@Html.AllValidationMessages(propertyVm.Name)
+			</span>
+		</div>
+	}
+}
