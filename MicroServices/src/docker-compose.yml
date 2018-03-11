@@ -5,4 +5,4 @@ services:
     image: reportinghub
     build:
       context: .
-      dockerfile: ../ReportingHub/Dockerfile
+      dockerfile: ReportingHub/Dockerfile

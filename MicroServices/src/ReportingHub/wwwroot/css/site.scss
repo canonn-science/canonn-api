@@ -1,0 +1,134 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+/* Offset content because of stickz navbar */
+body {
+    padding-top: 66px;
+}
+
+@media (max-width: 979px) {
+    body {
+        padding-top: 0px;
+    }
+}
+
+/* Index carousel */
+
+.carousel {
+    p.lead {
+        font-size: 3em;
+        font-weight: bold;
+
+        a:hover {
+            text-decoration: none;
+            color: $ed-orange;
+        }
+    }
+}
+
+
+/* Sticky footer */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.field-validation-error {
+    color: $red;
+}
+
+/* Custom form styles */
+
+label {
+    font-weight: bold;
+    color: $ed-orange;
+}
+
+/* FormFactory Styles */
+
+.is-optional-hint {
+    opacity: .5;
+}
+
+.ff-collection {
+    white-space: nowrap;
+}
+
+.ff-collection > ul {
+    background-color: rgba(220, 220, 220, 0.1);
+    border: solid 1px rgba(220, 220, 220, 0.2);
+    display: table;
+    padding: 10px 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ff-collection > ul > li {
+    background-color: rgba(220, 220, 220, 0.1);
+    border: 1px solid rgba(220, 220, 220, 0.2);
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    display: table;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ff-collection > ul > :last-child {
+    margin-bottom: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    padding: 0px 0px;
+    list-style: none;
+}
+
+ul.ff-property-choices {
+    list-style: none;
+    display: inline-block;
+}
+
+li.ff-choice-area > div > div {
+    display: inline-block;
+}
+
+li.ff-choice-area > div {
+    display: inline-block;
+    width: 100%;
+}
+
+.ff-choice-selector {
+    vertical-align: top;
+}
+
+.bottom-separated {
+    border-bottom: 1px solid gainsboro;
+}
+
+.ff-choice {
+    padding-left: 20px;
+}
+
+div.radio-block {
+    display: inline-block;
+}
+
+.ff-dragging {
+    transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -webkit-transform: rotate(3deg);
+}
