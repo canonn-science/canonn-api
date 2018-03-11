@@ -4,15 +4,21 @@
   "description": "Sample node project to test the events",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
-    "ts-node": "ts-node src/program.ts",
-    "ts-node-dev": "ts-node-dev src/program.ts"
+    "reporter": "ts-node src/reporter.ts",
+    "bm-projector": "ts-node src/barkMoundsProjector.ts"
   },
   "author": "Sebastian P.R. Gingter",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^9.4.7",
+    "csv": "^2.0.0",
+    "guid": "0.0.12",
+    "moment": "^2.21.0",
+    "node-eventstore-client": "^0.2.2",
+    "request": "^2.83.0",
     "ts-node": "^5.0.1",
     "ts-node-dev": "^1.0.0-pre.18",
-    "typescript": "^2.7.2"
+    "typescript": "^2.7.2",
+    "winston": "^3.0.0-rc2"
   }
 }
