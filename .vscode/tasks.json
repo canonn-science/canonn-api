@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ReportFormsSample.csproj"
+                "${workspaceFolder}/MicroServices/ReportingHub/ReportingHub.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  reportformssample:
-    image: reportformssample
-    build:
-      context: .
-      dockerfile: ReportFormsSample/Dockerfile

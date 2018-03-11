@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "dependsOn": "prebuild",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/ReportingHub.csproj",
+            ],
+            "problemMatcher": "$msCompile",
+        },
+        {
+            "label": "clean",
+            "dependsOn": "preclean",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/ReportingHub.csproj",
+            ],
+            "problemMatcher": "$msCompile",
+        },
+        {
+            "label": "prebuild",
+            "type": "gulp",
+            "task": "build",
+            "problemMatcher": [],
+        },
+        {
+            "label": "preclean",
+            "type": "gulp",
+            "task": "clean",
+            "problemMatcher": [],
+        },
+    ],
+}
