@@ -1,12 +1,7 @@
 @ECHO OFF
 
 ECHO.
-ECHO Deleting Event Store container
-docker rm -v cont-canonnapi-eventstore
-
-ECHO.
-ECHO Deleting Redis container
-docker rm -v cont-canonnapi-redis
+CALL deleteContainers.bat
 
 ECHO.
 ECHO Recreate container

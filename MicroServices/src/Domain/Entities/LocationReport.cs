@@ -3,14 +3,14 @@
 	using System;
 	using Microsoft.Extensions.Logging;
 
-	public abstract class LocationReport: Entity
-	{
-		public string ReportingCommander { get; protected set; }
+	//public abstract class LocationReport: Aggregate
+	//{
+	//	public string ReportingCommander { get; protected set; }
 
 
-		protected  LocationReport(ILogger logger, Guid id)
-			: base(logger, id)
-		{
-		}
-	}
+	//	protected  LocationReport(ILogger logger, Guid id)
+	//		: base(logger, id)
+	//	{
+	//	}
+	//}
 }

@@ -6,34 +6,35 @@
 	using Microsoft.Extensions.DependencyInjection;
 	using Microsoft.Extensions.Logging;
 
-	public class EntityFactory : IEntityFactory
+	public class AggregateFactory : IAggregateFactory
 	{
-		private readonly ILogger<EntityFactory> _logger;
+		private readonly ILogger<AggregateFactory> _logger;
 		private readonly IServiceProvider _serviceProvider;
 
-		public EntityFactory(ILogger<EntityFactory> logger, IServiceProvider serviceProvider)
+		public AggregateFactory(ILogger<AggregateFactory> logger, IServiceProvider serviceProvider)
 		{
 			_logger = logger;
 			_serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
 		}
 
 		public TEntity CreateEntity<TEntity>()
-			where TEntity : class, IEntity
+			where TEntity : class, IAggregate
 		{
 			return CreateEntity<TEntity>(Guid.NewGuid());
 		}
 
-		public TEntity CreateEntity<TEntity>(Guid id)
-			where TEntity : class, IEntity
+		public TAggregate CreateEntity<TAggregate>(Guid id)
+			where TAggregate : class, IAggregate
 		{
-			var entitytype = typeof(TEntity);
-			var ctor = GetEntityConstructor<TEntity>(entitytype);
+			var entitytype = typeof(TAggregate);
+			var ctor = GetEntityConstructor<TAggregate>(entitytype);
 
 			try
 			{
-				var logger = _serviceProvider.GetService<ILogger<TEntity>>();
+				var logger = _serviceProvider.GetService<ILogger<TAggregate>>();
+				var dispatcher = _serviceProvider.GetService<IEventDispatcher<TAggregate>>();
 
-				return (TEntity) ctor.Invoke(new object[] { logger, id });
+				return (TAggregate) ctor.Invoke(new object[] { logger, dispatcher, id });
 			}
 			catch (Exception ex)
 			{
@@ -41,11 +42,13 @@
 			}
 		}
 
-		private ConstructorInfo GetEntityConstructor<TEntity>(Type entityType)
+		private ConstructorInfo GetEntityConstructor<TAggregate>(Type entityType)
+			where TAggregate: class, IAggregate
 		{
 			var ctor = entityType.GetConstructor(new[]
 			{
-				typeof(ILogger<TEntity>),
+				typeof(ILogger<TAggregate>),
+				typeof(IEventDispatcher<TAggregate>),
 				typeof(Guid)
 			});
 

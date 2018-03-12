@@ -2,11 +2,11 @@
 {
 	using System;
 
-	public interface IEvent
+	public interface IAggregate
 	{
 		Guid Id { get; }
-		string Type { get; }
 		int Version { get; }
-		DateTime TimeStamp { get; }
+
+		void ApplyEvent(IEvent evt);
 	}
 }
